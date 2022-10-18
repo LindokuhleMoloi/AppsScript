@@ -1,6 +1,7 @@
+//Connect to Calendars
 const FREE_SLOTS_CALENDAR_ID = "***********************"
 const BOOKED_SLOTS_CALENDAR_ID = "*************@group.calendar.google.com"
-
+//
 function moveEventToBookedCalendar(e) {
   Logger.log(e.namedValues["Boardroom (Responses)"])
   var startingTime = new Date(e.namedValues["Boardroom (Responses)"])
@@ -16,7 +17,7 @@ function moveEventToBookedCalendar(e) {
   })
   
 }
-
+//delete available slots
 function deleteAllAvailableSlots() {
   const calendar = CalendarApp.getCalendarById(FREE_SLOTS_CALENDAR_ID)
   const events = calendar.getEvents(new Date(2022, 8, 1), new Date(2023, 8, 30))
@@ -26,7 +27,7 @@ function deleteAllAvailableSlots() {
   bringEvents();
 }
 
-
+//del slots if "booked on form"
 function deleteAllBookedSlots() {
   const calendar = CalendarApp.getCalendarById(BOOKED_SLOTS_CALENDAR_ID)
   const events = calendar.getEvents(new Date(2022, 8, 1), new Date(2023, 8, 30))
